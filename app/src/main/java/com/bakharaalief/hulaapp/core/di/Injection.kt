@@ -11,9 +11,9 @@ import com.bakharaalief.hulaapp.core.domain.usecase.MovieInteract
 import com.bakharaalief.hulaapp.core.domain.usecase.MovieUseCase
 import com.bakharaalief.hulaapp.core.utils.AppExecutors
 
-class Injection {
+object Injection {
 
-    private fun provideRepository(context: Context): IMovieRepository {
+    fun provideRepository(context: Context): IMovieRepository {
         val apiService = ApiConfig.provideApiService()
         val remoteDataSource = RemoteDataSource.getInstance(apiService)
 
@@ -25,7 +25,7 @@ class Injection {
         return MovieRepository.getInstance(remoteDataSource, localDataSource, appExecutors)
     }
 
-    private fun provideMovieUseCase(context: Context): MovieUseCase {
+    fun provideMovieUseCase(context: Context): MovieUseCase {
         val movieRepository = provideRepository(context)
         return MovieInteract(movieRepository)
     }
