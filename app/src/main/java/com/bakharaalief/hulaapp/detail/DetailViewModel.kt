@@ -1,8 +1,8 @@
 package com.bakharaalief.hulaapp.detail
 
 import androidx.lifecycle.ViewModel
-import com.bakharaalief.hulaapp.core.domain.model.Movie
-import com.bakharaalief.hulaapp.core.domain.usecase.MovieUseCase
+import com.bakharaalief.core.domain.model.Movie
+import com.bakharaalief.core.domain.usecase.MovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

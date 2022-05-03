@@ -1,12 +1,15 @@
 package com.bakharaalief.hulaapp.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bakharaalief.hulaapp.core.ui.MovieListAdapter
+import com.bakharaalief.core.domain.model.Movie
+import com.bakharaalief.core.ui.MovieListAdapter
 import com.bakharaalief.hulaapp.databinding.ActivityFavoriteBinding
+import com.bakharaalief.hulaapp.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,7 +51,9 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun setRv() {
-        adapter = MovieListAdapter()
+        adapter = MovieListAdapter {
+            toDetail(it)
+        }
         binding.movieRv.layoutManager = GridLayoutManager(this, 2)
         binding.movieRv.adapter = adapter
     }
@@ -59,5 +64,11 @@ class FavoriteActivity : AppCompatActivity() {
                 adapter.submitList(movies)
             }
         }
+    }
+
+    private fun toDetail(movie: Movie) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_DATA, movie)
+        startActivity(intent)
     }
 }

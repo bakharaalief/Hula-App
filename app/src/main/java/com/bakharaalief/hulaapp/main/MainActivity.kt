@@ -9,10 +9,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bakharaalief.core.data.Resource
+import com.bakharaalief.core.domain.model.Movie
+import com.bakharaalief.core.ui.MovieListAdapter
 import com.bakharaalief.hulaapp.R
-import com.bakharaalief.hulaapp.core.data.Resource
-import com.bakharaalief.hulaapp.core.ui.MovieListAdapter
 import com.bakharaalief.hulaapp.databinding.ActivityMainBinding
+import com.bakharaalief.hulaapp.detail.DetailActivity
 import com.bakharaalief.hulaapp.favorite.FavoriteActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRv() {
-        adapter = MovieListAdapter()
+        adapter = MovieListAdapter { toDetail(it) }
         binding.movieRv.layoutManager = GridLayoutManager(this, 2)
         binding.movieRv.adapter = adapter
     }
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.bookmark -> {
-                toFavoriteMovies()
+                toFavorite()
                 true
             }
             else -> false
@@ -87,8 +89,14 @@ class MainActivity : AppCompatActivity() {
         binding.loadingIndicator.visibility = if (status) View.VISIBLE else View.GONE
     }
 
-    private fun toFavoriteMovies() {
+    private fun toFavorite() {
         val intent = Intent(this, FavoriteActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun toDetail(movie: Movie) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(DetailActivity.EXTRA_DATA, movie)
         startActivity(intent)
     }
 }

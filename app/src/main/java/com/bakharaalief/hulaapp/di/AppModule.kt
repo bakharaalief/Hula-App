@@ -1,7 +1,7 @@
 package com.bakharaalief.hulaapp.di
 
-import com.bakharaalief.hulaapp.core.domain.usecase.MovieInteract
-import com.bakharaalief.hulaapp.core.domain.usecase.MovieUseCase
+import com.bakharaalief.core.domain.usecase.MovieInteract
+import com.bakharaalief.core.domain.usecase.MovieUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
