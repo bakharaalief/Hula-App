@@ -1,23 +1,26 @@
 package com.bakharaalief.hulaapp.main
 
-import android.app.SearchManager
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bakharaalief.hulaapp.R
 import com.bakharaalief.hulaapp.core.data.Resource
+import com.bakharaalief.hulaapp.core.ui.MovieListAdapter
 import com.bakharaalief.hulaapp.core.ui.ViewModelFactory
 import com.bakharaalief.hulaapp.databinding.ActivityMainBinding
+import com.bakharaalief.hulaapp.favorite.FavoriteActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private lateinit var adapter: MovieListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         setActionBar()
         setViewModel()
+        setRv()
         getListMovie()
     }
 
@@ -35,34 +39,30 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_option_menu, menu)
-
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search_hint)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-
-            override fun onQueryTextSubmit(query: String): Boolean {
-//                searchUser(query)
-                searchView.clearFocus()
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-        })
-
-        return true
-    }
-
     private fun setViewModel() {
         val factory = ViewModelFactory.getInstance(this)
         viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+    }
+
+    private fun setRv() {
+        adapter = MovieListAdapter()
+        binding.movieRv.layoutManager = GridLayoutManager(this, 2)
+        binding.movieRv.adapter = adapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_option_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.bookmark -> {
+                toFavoriteMovies()
+                true
+            }
+            else -> false
+        }
     }
 
     private fun getListMovie() {
@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
                     is Resource.Loading -> setLoading(true)
                     is Resource.Success -> {
                         setLoading(false)
+                        adapter.submitList(movies.data)
                     }
                     is Resource.Error -> {
                         setLoading(false)
@@ -84,5 +85,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setLoading(status: Boolean) {
         binding.loadingIndicator.visibility = if (status) View.VISIBLE else View.GONE
+    }
+
+    private fun toFavoriteMovies() {
+        val intent = Intent(this, FavoriteActivity::class.java)
+        startActivity(intent)
     }
 }

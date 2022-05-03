@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.bakharaalief.hulaapp.core.domain.usecase.MovieUseCase
 
-class MainViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
+class MainViewModel(movieUseCase: MovieUseCase) : ViewModel() {
     val movies = movieUseCase.getAllMovies().asLiveData()
 }

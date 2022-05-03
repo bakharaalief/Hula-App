@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">HulaApp</string>
     <string name="movie_logo">movie logo</string>
-    <string name="hula_app">Hula App</string>
-    <string name="search_icon">search icon</string>
-    <string name="search_hint">Search your movie</string>
+    <string name="hula">Hula</string>
     <string name="movie_cover_item">movie cover item</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="movie_cover_actionbar">movie cover actionbar</string>
+    <string name="gradient_background">gradient background</string>
+    <string name="original_title">Original Title</string>
+    <string name="language">Language</string>
+    <string name="release">Release</string>
+    <string name="overview">Overview</string>
+    <string name="bookmark_floating_button">bookmark floating button</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="bookmark_icon">bookmark icon</string>
 </resources>

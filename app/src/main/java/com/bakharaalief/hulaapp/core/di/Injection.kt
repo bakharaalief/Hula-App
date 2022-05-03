@@ -13,7 +13,7 @@ import com.bakharaalief.hulaapp.core.utils.AppExecutors
 
 object Injection {
 
-    fun provideRepository(context: Context): IMovieRepository {
+    private fun provideRepository(context: Context): IMovieRepository {
         val apiService = ApiConfig.provideApiService()
         val remoteDataSource = RemoteDataSource.getInstance(apiService)
 

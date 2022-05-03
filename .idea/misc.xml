@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projects/android/HulaApp/app/src/main/res/drawable/gradien_bg.xml" value="0.1665" />
+        <entry key="..\:/projects/android/HulaApp/app/src/main/res/drawable/gradient_bg.xml" value="0.1665" />
+        <entry key="..\:/projects/android/HulaApp/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.127" />
         <entry key="..\:/projects/android/HulaApp/app/src/main/res/layout/activity_detail.xml" value="0.259375" />
+        <entry key="..\:/projects/android/HulaApp/app/src/main/res/layout/activity_favorite.xml" value="0.259375" />
         <entry key="..\:/projects/android/HulaApp/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/projects/android/HulaApp/app/src/main/res/layout/item_movie.xml" value="0.259375" />
         <entry key="..\:/projects/android/HulaApp/app/src/main/res/menu/main_option_menu.xml" value="0.259375" />
