@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bakharaalief.hulaapp.core.ui.MovieListAdapter
-import com.bakharaalief.hulaapp.core.ui.ViewModelFactory
 import com.bakharaalief.hulaapp.databinding.ActivityFavoriteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavoriteBinding
@@ -43,8 +44,7 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun setViewModel() {
-        val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[FavoriteViewModel::class.java]
+        viewModel = ViewModelProvider(this)[FavoriteViewModel::class.java]
     }
 
     private fun setRv() {

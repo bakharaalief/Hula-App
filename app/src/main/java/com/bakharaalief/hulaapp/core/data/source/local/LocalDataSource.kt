@@ -3,8 +3,11 @@ package com.bakharaalief.hulaapp.core.data.source.local
 import com.bakharaalief.hulaapp.core.data.source.local.entity.MovieEntity
 import com.bakharaalief.hulaapp.core.data.source.local.room.MovieDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LocalDataSource private constructor(private val movieDao: MovieDao) {
+@Singleton
+class LocalDataSource @Inject constructor(private val movieDao: MovieDao) {
 
     fun getAllMovies(): Flow<List<MovieEntity>> = movieDao.getAllTourism()
 
@@ -15,15 +18,5 @@ class LocalDataSource private constructor(private val movieDao: MovieDao) {
     fun setFavoriteMovie(movie: MovieEntity, newState: Boolean) {
         movie.isFavorite = newState
         movieDao.updateFavoriteTourism(movie)
-    }
-
-    companion object {
-        @Volatile
-        private var instance: LocalDataSource? = null
-
-        fun getInstance(movieDao: MovieDao): LocalDataSource =
-            instance ?: synchronized(this) {
-                instance ?: LocalDataSource(movieDao)
-            }
     }
 }

@@ -7,10 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bakharaalief.hulaapp.R
 import com.bakharaalief.hulaapp.core.domain.model.Movie
-import com.bakharaalief.hulaapp.core.ui.ViewModelFactory
 import com.bakharaalief.hulaapp.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var movie: Movie
@@ -89,8 +90,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setViewModel() {
-        val factory = ViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        viewModel = ViewModelProvider(this)[DetailViewModel::class.java]
     }
 
     companion object {
