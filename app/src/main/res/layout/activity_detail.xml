@@ -66,67 +66,73 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/TitleTheme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="@string/original_title"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="@string/original_title" />
 
             <TextView
                 android:id="@+id/movie_overview_original_title"
+                style="@style/SubtitleTheme2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 tools:text="lorem ipsum bla bla" />
 
             <TextView
+                style="@style/TitleTheme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="@string/language"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="@string/language" />
 
             <TextView
                 android:id="@+id/movie_language_detail"
+                style="@style/SubtitleTheme2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 tools:text="en" />
 
             <TextView
+                style="@style/TitleTheme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="@string/release"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="@string/release" />
 
             <TextView
                 android:id="@+id/movie_release_detail"
+                style="@style/SubtitleTheme2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 tools:text="04-12-2022" />
 
             <TextView
+                style="@style/TitleTheme2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:text="@string/overview"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="@string/rating" />
+
+            <TextView
+                android:id="@+id/movie_rating_detail"
+                style="@style/SubtitleTheme2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="7.7" />
+
+            <TextView
+                style="@style/TitleTheme2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:text="@string/overview" />
 
             <TextView
                 android:id="@+id/movie_overview_detail"
+                style="@style/SubtitleTheme2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
                 tools:text="lorem ipsum bla bla" />
 
         </LinearLayout>

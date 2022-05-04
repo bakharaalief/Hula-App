@@ -5,9 +5,9 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.bakharaalief.core.domain.model.Movie
 import com.bakharaalief.hulaapp.R
 import com.bakharaalief.hulaapp.databinding.ActivityDetailBinding
+import com.bakharaalief.huluapp.core.domain.model.Movie
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -80,6 +80,7 @@ class DetailActivity : AppCompatActivity() {
         binding.movieLanguageDetail.text = movie.originalLanguage
         binding.movieReleaseDetail.text = movie.releaseDate
         binding.movieOverviewDetail.text = movie.overview
+        binding.movieRatingDetail.text = movie.voteAverage.toString()
     }
 
     private fun setBookmarkIcon() {

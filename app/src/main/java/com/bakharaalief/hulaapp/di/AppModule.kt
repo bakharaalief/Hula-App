@@ -1,18 +1,18 @@
 package com.bakharaalief.hulaapp.di
 
-import com.bakharaalief.core.domain.usecase.MovieInteract
-import com.bakharaalief.core.domain.usecase.MovieUseCase
+import com.bakharaalief.huluapp.core.domain.usecase.MovieInteract
+import com.bakharaalief.huluapp.core.domain.usecase.MovieUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class AppModule {
 
     @Binds
-    @ViewModelScoped
+    @Singleton
     abstract fun provideMovieUseCase(movieInteract: MovieInteract): MovieUseCase
 }

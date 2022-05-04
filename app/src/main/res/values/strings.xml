@@ -13,4 +13,6 @@
     <string name="bookmark_floating_button">bookmark floating button</string>
     <string name="favorite_movies">Favorite Movies</string>
     <string name="bookmark_icon">bookmark icon</string>
+    <string name="title_favorite">Module Title</string>
+    <string name="rating">Rating</string>
 </resources>

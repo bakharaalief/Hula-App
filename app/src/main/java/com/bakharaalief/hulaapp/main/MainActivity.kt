@@ -9,13 +9,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bakharaalief.core.data.Resource
-import com.bakharaalief.core.domain.model.Movie
-import com.bakharaalief.core.ui.MovieListAdapter
 import com.bakharaalief.hulaapp.R
 import com.bakharaalief.hulaapp.databinding.ActivityMainBinding
 import com.bakharaalief.hulaapp.detail.DetailActivity
-import com.bakharaalief.hulaapp.favorite.FavoriteActivity
+import com.bakharaalief.huluapp.core.data.Resource
+import com.bakharaalief.huluapp.core.domain.model.Movie
+import com.bakharaalief.huluapp.core.ui.MovieListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -90,8 +89,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toFavorite() {
-        val intent = Intent(this, FavoriteActivity::class.java)
-        startActivity(intent)
+        startActivity(
+            Intent(
+                this,
+                Class.forName("com.bakharaalief.huluapp.favorite.FavoriteActivity")
+            )
+        )
     }
 
     private fun toDetail(movie: Movie) {
