@@ -37,11 +37,11 @@ class DetailActivity : AppCompatActivity() {
         binding.bookmarkButton.setOnClickListener {
             isFavorite = if (isFavorite) {
                 viewModel.setMovieFavorite(movie, false)
-                Toast.makeText(this, "Success to Remove Bookmark", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.success_to_remove_bookmark), Toast.LENGTH_SHORT).show()
                 false
             } else {
                 viewModel.setMovieFavorite(movie, true)
-                Toast.makeText(this, "Success to Bookmark", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.success_to_bookmark), Toast.LENGTH_SHORT).show()
                 true
             }
 

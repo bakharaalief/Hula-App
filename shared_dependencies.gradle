@@ -14,4 +14,11 @@ dependencies {
     //dagger-hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //lack canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$lack_canary_version"
+
+    //mockito
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
 }

@@ -3,6 +3,7 @@ package com.bakharaalief.huluapp.favorite
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -76,6 +77,7 @@ class FavoriteActivity : AppCompatActivity() {
     private fun getListMovie() {
         viewModel.getFavoriteMovies.observe(this) { movies ->
             if (movies != null) {
+                if (movies.isEmpty()) setEmptyText(true) else setEmptyText(false)
                 adapter.submitList(movies)
             }
         }
@@ -85,5 +87,9 @@ class FavoriteActivity : AppCompatActivity() {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_DATA, movie)
         startActivity(intent)
+    }
+
+    private fun setEmptyText(status: Boolean) {
+        binding.emptyText.visibility = if (status) View.VISIBLE else View.GONE
     }
 }

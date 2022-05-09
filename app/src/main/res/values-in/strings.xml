@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HulaApp</string>
+    <string name="movie_logo">logo film</string>
+    <string name="hula">Hula</string>
+    <string name="movie_cover_item">item film cover</string>
+    <string name="movie_detail">Detail Film</string>
+    <string name="movie_cover_actionbar">action bar film cover</string>
+    <string name="gradient_background">gradient background</string>
+    <string name="original_title">Judul Original</string>
+    <string name="language">Bahasa</string>
+    <string name="release">Rilis</string>
+    <string name="overview">Rangkuman</string>
+    <string name="bookmark_floating_button">tombol floating bookmark</string>
+    <string name="bookmark_icon">icon bookmark</string>
+    <string name="title_favorite">Judul Modul</string>
+    <string name="rating">Rating</string>
+    <string name="setting_icon">ikon setting</string>
+    <string name="success_to_remove_bookmark">Berhasil untuk mencopot bookmark</string>
+    <string name="success_to_bookmark">Berhasil untuk bookmark</string>
+</resources>

@@ -2,6 +2,7 @@ package com.bakharaalief.hulaapp.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: MovieListAdapter
+
+    private val favoriteClass = "com.bakharaalief.huluapp.favorite.FavoriteActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +65,10 @@ class MainActivity : AppCompatActivity() {
                 toFavorite()
                 true
             }
+            R.id.setting -> {
+                toSetting()
+                true
+            }
             else -> false
         }
     }
@@ -92,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(
             Intent(
                 this,
-                Class.forName("com.bakharaalief.huluapp.favorite.FavoriteActivity")
+                Class.forName(favoriteClass)
             )
         )
     }
@@ -101,5 +108,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_DATA, movie)
         startActivity(intent)
+    }
+
+    private fun toSetting() {
+        startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+    }
+
+    override fun onBackPressed() {
+        finishAfterTransition()
     }
 }
