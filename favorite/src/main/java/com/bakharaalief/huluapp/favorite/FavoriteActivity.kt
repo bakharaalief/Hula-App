@@ -91,5 +91,6 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun setEmptyText(status: Boolean) {
         binding.emptyText.visibility = if (status) View.VISIBLE else View.GONE
+        binding.lottieAnimationView.visibility = if (status) View.VISIBLE else View.GONE
     }
 }

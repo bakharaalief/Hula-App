@@ -27,6 +27,8 @@ buildscript {
 
     ext.mockito_version = '3.12.4'
 
+    ext.lottie_version = "3.4.1"
+
     dependencies {
         classpath("com.google.dagger:hilt-android-gradle-plugin:$hilt_version")
     }
