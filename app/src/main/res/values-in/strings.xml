@@ -3,7 +3,6 @@
     <string name="app_name">HulaApp</string>
     <string name="movie_logo">logo film</string>
     <string name="hula">Hula</string>
-    <string name="movie_cover_item">item film cover</string>
     <string name="movie_detail">Detail Film</string>
     <string name="movie_cover_actionbar">action bar film cover</string>
     <string name="gradient_background">gradient background</string>
